@@ -21,7 +21,10 @@ public class AdvisorControllerIT {
 
     @Container
     private static final MySQLContainer<?> SQL_CONTAINER = new MySQLContainer<>()
-            .withDatabaseName("just_dab_db");
+            .withDatabaseName("just_dab_db")
+            .withUsername("root")
+            .withPassword("password");
+
 
     @DynamicPropertySource
     static void configureMySqlProperties(DynamicPropertyRegistry registry) {
