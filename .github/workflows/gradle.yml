@@ -95,14 +95,5 @@ jobs:
           name: my-jar-files
           path: ./build/libs
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-        
-      - name: Set up Docker CLI
-        uses: docker/setup-docker@v2
-        
-      - name: Build Docker image
-        run: |
-          docker build -t justdab-image:latest
-
+     
 
