@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file into the container at /app
-COPY build/libs/my-jar-files.jar /app/my-jar-files.jar
+COPY build/libs/justdab-0.0.1-SNAPSHOT.jar /app/justdab-0.0.1-SNAPSHOT.jar
 
 # Run the JAR file
-ENTRYPOINT ["java", "-jar", "my-jar-files.jar"]
+ENTRYPOINT ["java", "-jar", "justdab-0.0.1-SNAPSHOT.jar"]
