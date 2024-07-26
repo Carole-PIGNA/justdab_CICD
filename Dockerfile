@@ -1,13 +1,11 @@
-FROM gradle:8.5-jdk21 AS build
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:21-jdk-slim
 
-COPY . /backend/
+# Set the working directory in the container
+WORKDIR /app
 
-WORKDIR /backend/
+# Copy the JAR file into the container at /app
+COPY build/libs/my-jar-app.jar /app/my-jar-app.jar
 
-RUN gradle build -x test
-
-FROM openjdk:21
-
-COPY --from=build /backend/build/libs/justdab-0.0.1-SNAPSHOT.jar /app/justdab.jar
-
-ENTRYPOINT ["java", "-jar", "/app/justdab.jar"]
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "my-jar-app.jar"]
